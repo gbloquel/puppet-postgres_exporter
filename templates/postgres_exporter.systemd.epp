@@ -1,0 +1,17 @@
+[Unit]
+Description=Prometheus Postgres Exporter
+Wants=basic.target
+After=basic.target network.target
+
+[Service]
+User=<%= $::postgres_exporter::postgres_exporter_user %>
+Group=<%= $::postgres_exporter::postgres_exporter_group %>
+EnvironmentFile=<%= $::postgres_exporter::config_file %>
+ExecStart=<%= $bin_dir -%>/postgres_exporter
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+RestartSec=60s
+
+[Install]
+WantedBy=multi-user.target
