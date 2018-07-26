@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.org/gbloquel/puppet-postgres_exporter.svg?branch=master)](https://travis-ci.org/gbloquel/puppet-postgres_exporter)
 # postgres_exporter
 
 
