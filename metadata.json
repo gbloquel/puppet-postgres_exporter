@@ -4,7 +4,9 @@
   "author": "Gregory BLOQUEL",
   "summary": "Install Postgres Prometheux Exporter",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/gbloquel/puppet-postgres_exporter",
+  "project_page": "https://github.com/gbloquel/puppet-postgres_exporter",
+  "issues_url": "https://github.com/gbloquel/puppet-postgres_exporter/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
