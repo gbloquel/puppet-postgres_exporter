@@ -2,7 +2,7 @@
   "name": "gbloquel-postgres_exporter",
   "version": "0.1.2",
   "author": "Gregory BLOQUEL",
-  "summary": "Install Postgres Prometheux Exporter",
+  "summary": "Install Postgres Prometheus Exporter",
   "license": "Apache-2.0",
   "source": "https://github.com/gbloquel/puppet-postgres_exporter",
   "project_page": "https://github.com/gbloquel/puppet-postgres_exporter",
