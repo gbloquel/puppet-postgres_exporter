@@ -43,6 +43,18 @@ class { 'postgres_exporter':
 }
 ```
 
+**Use the flags**
+```puppet
+class { 'postgres_exporter':
+  flags => {
+      'web.listen-address' => ':9999',
+      'web.telemetry-path' => '/apis',
+  },
+}
+```
+Others parameters can be used see [`postgres_exporter`](https://github.com/wrouesnel/postgres_exporter)
+
+
 
 ## Limitations
 

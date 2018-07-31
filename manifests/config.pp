@@ -13,6 +13,7 @@ class postgres_exporter::config {
     group   => $::postgres_exporter::postgres_exporter_group,
     mode    => '0640',
     content => epp('postgres_exporter/postgres_exporter.configfile.epp', {
+      flags => $::postgres_exporter::flags
     })
   }
 }
