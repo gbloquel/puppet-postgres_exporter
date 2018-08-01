@@ -43,6 +43,30 @@ class { 'postgres_exporter':
 }
 ```
 
+**Use the flags**
+```puppet
+class { 'postgres_exporter':
+  flags => {
+      'web.listen-address' => ':9999',
+      'web.telemetry-path' => '/apis',
+  },
+}
+```
+
+**Add custom queries**
+```puppet
+class { 'postgres_exporter':
+  flags => {
+      'extend.query-path' => '/opt/postgres_exporter/query.yaml',
+  },
+}
+```
+
+You need provided the file `query.yaml` before. A example of format is available [`queries.yaml`](examples/queries.yaml)
+
+Others parameters can be used see [`postgres_exporter`](https://github.com/wrouesnel/postgres_exporter)
+
+
 
 ## Limitations
 

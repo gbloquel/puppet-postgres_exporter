@@ -1,1 +1,8 @@
-DATA_SOURCE_NAME="<%= $postgres_exporter::datasource -%>"
+<%- | Optional[Hash[String, String]] $flags | -%>
+<% include stdlib -%>
+DATA_SOURCE_NAME="<%= $::postgres_exporter::datasource -%>"
+<% unless $flags =~ Undef { -%>
+FLAGS="<%= join($flags.map |String $key, String $value | {
+    "--${key}=${value}"
+}, ' ') %>"
+<%- } -%>

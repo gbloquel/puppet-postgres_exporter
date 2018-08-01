@@ -25,13 +25,30 @@ describe 'postgres_exporter' do
         it do
           is_expected.to contain_file('/etc/sysconfig/postgres_exporter')
             .with(
-              'content' => 'DATA_SOURCE_NAME="user=postgres host=/var/run/postgresql/ sslmode=disable"',
+              'content' => /DATA_SOURCE_NAME="user=postgres host=\/var\/run\/postgresql\/ sslmode=disable"/,
               'group'   => 'postgres'
             )
         end
 
         it { is_expected.to contain_service('postgres_exporter') }
 
+      end
+      context 'postgres_exporter class with parameters' do
+        let(:params) do
+            {
+              :flags => {
+              "web.telemetry-path" => "/metrics2",
+              "log.level"          => "debug"
+              }
+            }
+        end
+        it do
+          is_expected.to contain_file('/etc/sysconfig/postgres_exporter')
+            .with(
+              'content' => /FLAGS="--web.telemetry-path=\/metrics2 --log.level=debug"/,
+              'group'   => 'postgres'
+            )
+        end
       end
     end
   end
