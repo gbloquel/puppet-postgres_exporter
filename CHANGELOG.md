@@ -5,7 +5,8 @@ All notable changes to this project will be documented in this file.
 ## Release 1.0.0
 
 **Features**
-- Command line flags are available 
+- Command line flags are available
+- Custom queries can be done 
 
 **Bugfixes**
 
