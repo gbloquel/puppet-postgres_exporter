@@ -7,7 +7,7 @@ After=basic.target network.target
 User=<%= $::postgres_exporter::postgres_exporter_user %>
 Group=<%= $::postgres_exporter::postgres_exporter_group %>
 EnvironmentFile=<%= $::postgres_exporter::config_file %>
-ExecStart=<%= $bin_dir -%>/postgres_exporter
+ExecStart=<%= $bin_dir -%>/postgres_exporter $FLAGS
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=always
