@@ -1,0 +1,9 @@
+---
+vagrant:
+  provisioner: vagrant
+  images:
+  - centos/7
+travis_centos7:
+  provisioner: docker
+  images:
+  - litmusimage/centos:7
