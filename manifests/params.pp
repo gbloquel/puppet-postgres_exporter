@@ -4,7 +4,7 @@
 #
 # @api private
 class postgres_exporter::params {
-  $version                       = '0.4.6'
+  $version                       = '0.8.0'
   $manage_user                   = true
   $manage_group                  = true
   $archive_url_base              = 'https://github.com/wrouesnel/postgres_exporter/releases/download'
@@ -28,12 +28,5 @@ class postgres_exporter::params {
       fail("${::kernel} not supported")
     }
   }
-
-  $real_archive_url = pick(
-    $archive_url,
-    "${archive_url_base}/v${version}/${archive_name}_v${version}_${os}-${arch}.tar.gz"
-  )
-  $local_archive_name = "${archive_name}_v${version}_${os}-${arch}.tar.gz"
-  $install_dir = "/opt/${archive_name}_v${version}_${os}-${arch}"
 
 }
