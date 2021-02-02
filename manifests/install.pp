@@ -20,13 +20,21 @@ class postgres_exporter::install {
     })
     Group[$::postgres_exporter::postgres_exporter_group]->User[$::postgres_exporter::postgres_exporter_user]
   }
-  archive { "/tmp/${postgres_exporter::local_archive_name}":
+
+  $real_archive_url = pick(
+    $postgres_exporter::archive_url,
+    "${postgres_exporter::archive_url_base}/v${postgres_exporter::version}/${postgres_exporter::archive_name}_v${postgres_exporter::version}_${postgres_exporter::os}-${postgres_exporter::arch}.tar.gz"
+  )
+  $local_archive_name = "${postgres_exporter::archive_name}_v${postgres_exporter::version}_${postgres_exporter::os}-${postgres_exporter::arch}.tar.gz"
+  $install_dir = "/opt/${postgres_exporter::archive_name}_v${postgres_exporter::version}_${postgres_exporter::os}-${postgres_exporter::arch}"
+
+  archive { "/tmp/${local_archive_name}":
     ensure          => present,
     extract         => true,
     extract_path    => '/opt',
-    source          => $postgres_exporter::real_archive_url,
+    source          => $real_archive_url,
     checksum_verify => false,
-    creates         => "${::postgres_exporter::install_dir}/postgres_exporter",
+    creates         => "${install_dir}/postgres_exporter",
     cleanup         => true,
   }
 

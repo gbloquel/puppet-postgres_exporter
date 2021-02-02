@@ -29,11 +29,4 @@ class postgres_exporter::params {
     }
   }
 
-  $real_archive_url = pick(
-    $archive_url,
-    "${archive_url_base}/v${version}/${archive_name}_v${version}_${os}-${arch}.tar.gz"
-  )
-  $local_archive_name = "${archive_name}_v${version}_${os}-${arch}.tar.gz"
-  $install_dir = "/opt/${archive_name}_v${version}_${os}-${arch}"
-
 }

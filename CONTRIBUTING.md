@@ -76,17 +76,18 @@ To run the linter, rubocop, the syntax checker and the unit tests:
 
 The unit tests just check the code runs, not that it does exactly what
 we want on a real machine. For that we're using
-[beaker](https://github.com/puppetlabs/beaker).
+[litmus](https://puppet.com/blog/litmus-new-module-acceptance-testing-tool/).
 
 This fires up a new virtual machine (using vagrant) and runs a series of
 simple tests against it after applying the module. You can run this
 with:
 
-    bundle exec rake beaker:centos-7-x64
+    bundle exec rake 'litmus:provision_list[vagrant]
+    bundle exec rake 'litmus:install_agent[puppet6]'`
+    PUPPET_GEM_VERSION="~>6.0" bundle exec rake 'litmus:install_modules_from_directory'
+    PUPPET_GEM_VERSION="~>6.0" bundle exec rake 'litmus:acceptance:127.0.0.1:2222'
+    
+Once executed and remove the virtual machine. You can destroy it with:
 
-If you don't want to have to recreate the virtual machine every time you
-can use `BEAKER_destroy=no` and `BEAKER_provision=no`. On the first run you will
-at least need `BEAKER_provision` set to yes (the default). The Vagrantfile
-for the created virtual machines will be in `.vagrant/beaker_vagrant_fies`.
-
+    PUPPET_GEM_VERSION="~>6.0" bundle exec rake 'litmus:tear_down'
 # vim: syntax=markdown

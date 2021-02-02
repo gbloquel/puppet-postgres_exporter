@@ -11,7 +11,7 @@ class postgres_exporter::service {
     group   => 'root',
     mode    => '0644',
     content => epp('postgres_exporter/postgres_exporter.systemd.epp', {
-      'bin_dir' => $::postgres_exporter::install_dir
+      'bin_dir' => $::postgres_exporter::install::install_dir
     }
     )
   }
