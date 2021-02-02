@@ -16,10 +16,10 @@ describe 'postgres_exporter' do
         it { is_expected.to contain_user('postgres') }
         it { is_expected.to contain_group('postgres') }
         it do
-          is_expected.to contain_archive('/tmp/postgres_exporter_v0.4.6_linux-amd64.tar.gz')
+          is_expected.to contain_archive('/tmp/postgres_exporter_v0.8.0_linux-amd64.tar.gz')
             .with(
-              'source'  => 'https://github.com/wrouesnel/postgres_exporter/releases/download/v0.4.6/postgres_exporter_v0.4.6_linux-amd64.tar.gz',
-              'creates' => '/opt/postgres_exporter_v0.4.6_linux-amd64/postgres_exporter',
+              'source'  => 'https://github.com/wrouesnel/postgres_exporter/releases/download/v0.8.0/postgres_exporter_v0.8.0_linux-amd64.tar.gz',
+              'creates' => '/opt/postgres_exporter_v0.8.0_linux-amd64/postgres_exporter',
             )
         end
         it do
@@ -39,7 +39,7 @@ describe 'postgres_exporter' do
               'web.telemetry-path' => '/metrics2',
               'log.level'          => 'debug',
             },
-            version: '0.8.0',          
+            version: '0.7.0',
           }
         end
 
@@ -52,10 +52,10 @@ describe 'postgres_exporter' do
         end
 
         it do
-          is_expected.to contain_archive('/tmp/postgres_exporter_v0.8.0_linux-amd64.tar.gz')
+          is_expected.to contain_archive('/tmp/postgres_exporter_v0.7.0_linux-amd64.tar.gz')
             .with(
-              'source'  => 'https://github.com/wrouesnel/postgres_exporter/releases/download/v0.8.0/postgres_exporter_v0.8.0_linux-amd64.tar.gz',
-              'creates' => '/opt/postgres_exporter_v0.8.0_linux-amd64/postgres_exporter',
+              'source'  => 'https://github.com/wrouesnel/postgres_exporter/releases/download/v0.7.0/postgres_exporter_v0.7.0_linux-amd64.tar.gz',
+              'creates' => '/opt/postgres_exporter_v0.7.0_linux-amd64/postgres_exporter',
             )
         end
       end

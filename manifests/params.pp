@@ -4,7 +4,7 @@
 #
 # @api private
 class postgres_exporter::params {
-  $version                       = '0.4.6'
+  $version                       = '0.8.0'
   $manage_user                   = true
   $manage_group                  = true
   $archive_url_base              = 'https://github.com/wrouesnel/postgres_exporter/releases/download'
