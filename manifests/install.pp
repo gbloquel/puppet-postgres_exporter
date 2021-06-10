@@ -23,10 +23,10 @@ class postgres_exporter::install {
 
   $real_archive_url = pick(
     $postgres_exporter::archive_url,
-    "${postgres_exporter::archive_url_base}/v${postgres_exporter::version}/${postgres_exporter::archive_name}_v${postgres_exporter::version}_${postgres_exporter::os}-${postgres_exporter::arch}.tar.gz"
+    "${postgres_exporter::archive_url_base}/v${postgres_exporter::version}/${postgres_exporter::archive_name}-${postgres_exporter::version}.${postgres_exporter::os}-${postgres_exporter::arch}.tar.gz"
   )
-  $local_archive_name = "${postgres_exporter::archive_name}_v${postgres_exporter::version}_${postgres_exporter::os}-${postgres_exporter::arch}.tar.gz"
-  $install_dir = "/opt/${postgres_exporter::archive_name}_v${postgres_exporter::version}_${postgres_exporter::os}-${postgres_exporter::arch}"
+  $local_archive_name = "${postgres_exporter::archive_name}-${postgres_exporter::version}.${postgres_exporter::os}-${postgres_exporter::arch}.tar.gz"
+  $install_dir = "/opt/${postgres_exporter::archive_name}-${postgres_exporter::version}.${postgres_exporter::os}-${postgres_exporter::arch}"
 
   archive { "/tmp/${local_archive_name}":
     ensure          => present,
