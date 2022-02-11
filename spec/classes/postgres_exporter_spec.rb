@@ -16,10 +16,10 @@ describe 'postgres_exporter' do
         it { is_expected.to contain_user('postgres') }
         it { is_expected.to contain_group('postgres') }
         it do
-          is_expected.to contain_archive('/tmp/postgres_exporter-0.9.0.linux-amd64.tar.gz')
+          is_expected.to contain_archive('/tmp/postgres_exporter-0.10.1.linux-amd64.tar.gz')
             .with(
-              'source'  => 'https://github.com/prometheus-community/postgres_exporter/releases/download/v0.9.0/postgres_exporter-0.9.0.linux-amd64.tar.gz',
-              'creates' => '/opt/postgres_exporter-0.9.0.linux-amd64/postgres_exporter',
+              'source'  => 'https://github.com/prometheus-community/postgres_exporter/releases/download/v0.10.1/postgres_exporter-0.10.1.linux-amd64.tar.gz',
+              'creates' => '/opt/postgres_exporter-0.10.1.linux-amd64/postgres_exporter',
             )
         end
         it do

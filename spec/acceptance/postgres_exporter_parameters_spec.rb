@@ -25,7 +25,7 @@ describe 'postgres_exporter class' do
       } ->
       class { '::postgresql::server': } ->
       class { 'postgres_exporter':
-        version => '0.9.0',
+        version => '0.10.1',
         flags => {
           'web.listen-address' => ':9999',
         }
@@ -33,7 +33,7 @@ describe 'postgres_exporter class' do
       EOS
       apply_manifest(pp, catch_failures: true)
       expect(port(9999)).to be_listening.with('tcp6')
-      expect(file('/opt/postgres_exporter-0.9.0.linux-amd64/postgres_exporter')).to be_file
+      expect(file('/opt/postgres_exporter-0.10.1.linux-amd64/postgres_exporter')).to be_file
     end
   end
 end

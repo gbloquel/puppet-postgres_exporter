@@ -4,7 +4,7 @@
 #
 # @api private
 class postgres_exporter::params {
-  $version                       = '0.9.0'
+  $version                       = '0.10.1'
   $manage_user                   = true
   $manage_group                  = true
   $archive_url_base              = 'https://github.com/prometheus-community/postgres_exporter/releases/download'
