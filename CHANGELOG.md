@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 1.2
+-  Upgrade module to use postgres_exporter as default to 0.10.1  [\#10](https://github.com/gbloquel/puppet-postgres_exporter/issues/10)
+
 ## Release 1.1
 - Use postgres_exporter from prometheus community. [\#7](https://github.com/gbloquel/puppet-postgres_exporter/issues/7)
 
